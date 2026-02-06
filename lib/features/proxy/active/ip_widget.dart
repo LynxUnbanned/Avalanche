@@ -1,10 +1,10 @@
 import 'package:circle_flags/circle_flags.dart';
 import 'package:flutter/material.dart';
-import 'package:hiddify/core/haptic/haptic_service.dart';
-import 'package:hiddify/core/localization/translations.dart';
-import 'package:hiddify/core/utils/ip_utils.dart';
-import 'package:hiddify/gen/fonts.gen.dart';
-import 'package:hiddify/utils/riverpod_utils.dart';
+import 'package:avalanche/core/haptic/haptic_service.dart';
+import 'package:avalanche/core/localization/translations.dart';
+import 'package:avalanche/core/utils/ip_utils.dart';
+import 'package:avalanche/gen/fonts.gen.dart';
+import 'package:avalanche/utils/riverpod_utils.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final _showIp = StateProvider.autoDispose((ref) {

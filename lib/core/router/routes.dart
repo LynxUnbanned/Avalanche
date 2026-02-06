@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hiddify/core/router/app_router.dart';
-import 'package:hiddify/features/common/adaptive_root_scaffold.dart';
-import 'package:hiddify/features/config_option/overview/config_options_page.dart';
-import 'package:hiddify/features/config_option/widget/quick_settings_modal.dart';
+import 'package:avalanche/core/router/app_router.dart';
+import 'package:avalanche/features/common/adaptive_root_scaffold.dart';
+import 'package:avalanche/features/config_option/overview/config_options_page.dart';
+import 'package:avalanche/features/config_option/widget/quick_settings_modal.dart';
 
-import 'package:hiddify/features/home/widget/home_page.dart';
-import 'package:hiddify/features/intro/widget/intro_page.dart';
-import 'package:hiddify/features/log/overview/logs_overview_page.dart';
-import 'package:hiddify/features/per_app_proxy/overview/per_app_proxy_page.dart';
-import 'package:hiddify/features/profile/add/add_profile_modal.dart';
-import 'package:hiddify/features/profile/details/profile_details_page.dart';
-import 'package:hiddify/features/profile/overview/profiles_overview_page.dart';
-import 'package:hiddify/features/proxy/overview/proxies_overview_page.dart';
-import 'package:hiddify/features/settings/about/about_page.dart';
-import 'package:hiddify/features/settings/overview/settings_overview_page.dart';
-import 'package:hiddify/utils/utils.dart';
+import 'package:avalanche/features/home/widget/home_page.dart';
+import 'package:avalanche/features/intro/widget/intro_page.dart';
+import 'package:avalanche/features/log/overview/logs_overview_page.dart';
+import 'package:avalanche/features/per_app_proxy/overview/per_app_proxy_page.dart';
+import 'package:avalanche/features/profile/add/add_profile_modal.dart';
+import 'package:avalanche/features/profile/details/profile_details_page.dart';
+import 'package:avalanche/features/profile/overview/profiles_overview_page.dart';
+import 'package:avalanche/features/proxy/overview/proxies_overview_page.dart';
+import 'package:avalanche/features/settings/about/about_page.dart';
+import 'package:avalanche/features/settings/overview/settings_overview_page.dart';
+import 'package:avalanche/utils/utils.dart';
 
 part 'routes.g.dart';
 

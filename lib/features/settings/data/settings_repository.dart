@@ -1,8 +1,8 @@
 import 'package:flutter/services.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:hiddify/core/utils/exception_handler.dart';
-import 'package:hiddify/features/settings/model/settings_failure.dart';
-import 'package:hiddify/utils/custom_loggers.dart';
+import 'package:avalanche/core/utils/exception_handler.dart';
+import 'package:avalanche/features/settings/model/settings_failure.dart';
+import 'package:avalanche/utils/custom_loggers.dart';
 
 abstract interface class SettingsRepository {
   TaskEither<SettingsFailure, bool> isIgnoringBatteryOptimizations();

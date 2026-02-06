@@ -1,5 +1,5 @@
-name: hiddify
-description: Cross Platform Multi Protocol Proxy Frontend.
+name: avalanche
+description: Avalanche VPN - Secure Multi-Protocol Proxy Client with Modern UI.
 publish_to: "none"
 version: 2.5.7+20507
 

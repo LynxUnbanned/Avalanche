@@ -1,19 +1,19 @@
 import 'package:dartx/dartx.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:hiddify/core/model/optional_range.dart';
-import 'package:hiddify/core/model/region.dart';
-import 'package:hiddify/core/preferences/general_preferences.dart';
+import 'package:avalanche/core/model/optional_range.dart';
+import 'package:avalanche/core/model/region.dart';
+import 'package:avalanche/core/preferences/general_preferences.dart';
 
-import 'package:hiddify/core/utils/exception_handler.dart';
-import 'package:hiddify/core/utils/json_converters.dart';
-import 'package:hiddify/core/utils/preferences_utils.dart';
-import 'package:hiddify/features/config_option/model/config_option_failure.dart';
+import 'package:avalanche/core/utils/exception_handler.dart';
+import 'package:avalanche/core/utils/json_converters.dart';
+import 'package:avalanche/core/utils/preferences_utils.dart';
+import 'package:avalanche/features/config_option/model/config_option_failure.dart';
 
-import 'package:hiddify/features/log/model/log_level.dart';
-import 'package:hiddify/singbox/model/singbox_config_enum.dart';
-import 'package:hiddify/singbox/model/singbox_config_option.dart';
-import 'package:hiddify/singbox/model/singbox_rule.dart';
-import 'package:hiddify/utils/utils.dart';
+import 'package:avalanche/features/log/model/log_level.dart';
+import 'package:avalanche/singbox/model/singbox_config_enum.dart';
+import 'package:avalanche/singbox/model/singbox_config_option.dart';
+import 'package:avalanche/singbox/model/singbox_rule.dart';
+import 'package:avalanche/utils/utils.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

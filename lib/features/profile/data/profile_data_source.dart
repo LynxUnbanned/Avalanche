@@ -1,8 +1,8 @@
 import 'package:drift/drift.dart';
-import 'package:hiddify/core/database/app_database.dart';
-import 'package:hiddify/core/database/tables/database_tables.dart';
-import 'package:hiddify/features/profile/model/profile_sort_enum.dart';
-import 'package:hiddify/utils/utils.dart';
+import 'package:avalanche/core/database/app_database.dart';
+import 'package:avalanche/core/database/tables/database_tables.dart';
+import 'package:avalanche/features/profile/model/profile_sort_enum.dart';
+import 'package:avalanche/utils/utils.dart';
 
 part 'profile_data_source.g.dart';
 

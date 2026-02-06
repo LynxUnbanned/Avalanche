@@ -1,15 +1,15 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:hiddify/core/localization/translations.dart';
-import 'package:hiddify/core/model/constants.dart';
-import 'package:hiddify/core/utils/preferences_utils.dart';
-import 'package:hiddify/core/widget/animated_text.dart';
-import 'package:hiddify/features/stats/model/stats_entity.dart';
-import 'package:hiddify/features/stats/notifier/stats_notifier.dart';
-import 'package:hiddify/features/stats/widget/connection_stats_card.dart';
-import 'package:hiddify/features/stats/widget/stats_card.dart';
-import 'package:hiddify/utils/number_formatters.dart';
+import 'package:avalanche/core/localization/translations.dart';
+import 'package:avalanche/core/model/constants.dart';
+import 'package:avalanche/core/utils/preferences_utils.dart';
+import 'package:avalanche/core/widget/animated_text.dart';
+import 'package:avalanche/features/stats/model/stats_entity.dart';
+import 'package:avalanche/features/stats/notifier/stats_notifier.dart';
+import 'package:avalanche/features/stats/widget/connection_stats_card.dart';
+import 'package:avalanche/features/stats/widget/stats_card.dart';
+import 'package:avalanche/utils/number_formatters.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final showAllSidebarStatsProvider = PreferencesNotifier.createAutoDispose(

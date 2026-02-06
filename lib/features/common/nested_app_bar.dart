@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hiddify/bootstrap.dart';
-import 'package:hiddify/core/router/router.dart';
-import 'package:hiddify/features/common/adaptive_root_scaffold.dart';
-import 'package:hiddify/utils/utils.dart';
+import 'package:avalanche/bootstrap.dart';
+import 'package:avalanche/core/router/router.dart';
+import 'package:avalanche/features/common/adaptive_root_scaffold.dart';
+import 'package:avalanche/utils/utils.dart';
 
 bool showDrawerButton(BuildContext context) {
   if (!useMobileRouter) return true;

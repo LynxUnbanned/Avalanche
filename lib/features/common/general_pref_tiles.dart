@@ -1,15 +1,15 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:hiddify/core/analytics/analytics_controller.dart';
-import 'package:hiddify/core/localization/locale_extensions.dart';
-import 'package:hiddify/core/localization/locale_preferences.dart';
-import 'package:hiddify/core/localization/translations.dart';
-import 'package:hiddify/core/model/region.dart';
-import 'package:hiddify/core/preferences/actions_at_closing.dart';
-import 'package:hiddify/core/preferences/general_preferences.dart';
-import 'package:hiddify/core/theme/app_theme_mode.dart';
-import 'package:hiddify/core/theme/theme_preferences.dart';
-import 'package:hiddify/features/config_option/data/config_option_repository.dart';
+import 'package:avalanche/core/analytics/analytics_controller.dart';
+import 'package:avalanche/core/localization/locale_extensions.dart';
+import 'package:avalanche/core/localization/locale_preferences.dart';
+import 'package:avalanche/core/localization/translations.dart';
+import 'package:avalanche/core/model/region.dart';
+import 'package:avalanche/core/preferences/actions_at_closing.dart';
+import 'package:avalanche/core/preferences/general_preferences.dart';
+import 'package:avalanche/core/theme/app_theme_mode.dart';
+import 'package:avalanche/core/theme/theme_preferences.dart';
+import 'package:avalanche/features/config_option/data/config_option_repository.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class LocalePrefTile extends ConsumerWidget {

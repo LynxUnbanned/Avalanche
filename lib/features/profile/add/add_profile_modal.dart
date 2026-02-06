@@ -5,17 +5,17 @@ import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hiddify/core/localization/translations.dart';
-import 'package:hiddify/core/notification/in_app_notification_controller.dart';
-import 'package:hiddify/core/preferences/preferences_provider.dart';
-import 'package:hiddify/core/router/router.dart';
-import 'package:hiddify/features/common/qr_code_scanner_screen.dart';
-import 'package:hiddify/features/config_option/data/config_option_repository.dart';
-import 'package:hiddify/features/config_option/notifier/warp_option_notifier.dart';
+import 'package:avalanche/core/localization/translations.dart';
+import 'package:avalanche/core/notification/in_app_notification_controller.dart';
+import 'package:avalanche/core/preferences/preferences_provider.dart';
+import 'package:avalanche/core/router/router.dart';
+import 'package:avalanche/features/common/qr_code_scanner_screen.dart';
+import 'package:avalanche/features/config_option/data/config_option_repository.dart';
+import 'package:avalanche/features/config_option/notifier/warp_option_notifier.dart';
 
-import 'package:hiddify/features/config_option/overview/warp_options_widgets.dart';
-import 'package:hiddify/features/profile/notifier/profile_notifier.dart';
-import 'package:hiddify/utils/utils.dart';
+import 'package:avalanche/features/config_option/overview/warp_options_widgets.dart';
+import 'package:avalanche/features/profile/notifier/profile_notifier.dart';
+import 'package:avalanche/utils/utils.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class AddProfileModal extends HookConsumerWidget {

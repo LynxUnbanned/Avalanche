@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:hiddify/core/logger/custom_logger.dart';
-import 'package:hiddify/utils/custom_loggers.dart';
+import 'package:avalanche/core/logger/custom_logger.dart';
+import 'package:avalanche/utils/custom_loggers.dart';
 import 'package:loggy/loggy.dart';
 
 class LoggerController extends LoggyPrinter with InfraLogger {

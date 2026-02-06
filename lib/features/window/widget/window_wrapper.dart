@@ -1,13 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:hiddify/core/preferences/actions_at_closing.dart';
-import 'package:hiddify/core/preferences/general_preferences.dart';
-import 'package:hiddify/features/common/adaptive_root_scaffold.dart';
-import 'package:hiddify/features/window/notifier/window_notifier.dart';
-import 'package:hiddify/features/window/widget/window_closing_dialog.dart';
-import 'package:hiddify/utils/custom_loggers.dart';
-import 'package:hiddify/utils/platform_utils.dart';
+import 'package:avalanche/core/preferences/actions_at_closing.dart';
+import 'package:avalanche/core/preferences/general_preferences.dart';
+import 'package:avalanche/features/common/adaptive_root_scaffold.dart';
+import 'package:avalanche/features/window/notifier/window_notifier.dart';
+import 'package:avalanche/features/window/widget/window_closing_dialog.dart';
+import 'package:avalanche/utils/custom_loggers.dart';
+import 'package:avalanche/utils/platform_utils.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:window_manager/window_manager.dart';
 

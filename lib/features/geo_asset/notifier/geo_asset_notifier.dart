@@ -1,8 +1,8 @@
 // import 'package:fpdart/fpdart.dart';
-// import 'package:hiddify/features/geo_asset/data/geo_asset_data_providers.dart';
-// import 'package:hiddify/features/geo_asset/model/geo_asset_entity.dart';
-// import 'package:hiddify/utils/custom_loggers.dart';
-// import 'package:hiddify/utils/riverpod_utils.dart';
+// import 'package:avalanche/features/geo_asset/data/geo_asset_data_providers.dart';
+// import 'package:avalanche/features/geo_asset/model/geo_asset_entity.dart';
+// import 'package:avalanche/utils/custom_loggers.dart';
+// import 'package:avalanche/utils/riverpod_utils.dart';
 // import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // part 'geo_asset_notifier.g.dart';

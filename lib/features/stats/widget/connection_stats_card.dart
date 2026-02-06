@@ -1,12 +1,12 @@
 import 'package:dartx/dartx.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:hiddify/core/localization/translations.dart';
-import 'package:hiddify/core/widget/shimmer_skeleton.dart';
-import 'package:hiddify/features/proxy/active/active_proxy_notifier.dart';
-import 'package:hiddify/features/proxy/active/ip_widget.dart';
-import 'package:hiddify/features/proxy/model/proxy_failure.dart';
-import 'package:hiddify/features/stats/widget/stats_card.dart';
+import 'package:avalanche/core/localization/translations.dart';
+import 'package:avalanche/core/widget/shimmer_skeleton.dart';
+import 'package:avalanche/features/proxy/active/active_proxy_notifier.dart';
+import 'package:avalanche/features/proxy/active/ip_widget.dart';
+import 'package:avalanche/features/proxy/model/proxy_failure.dart';
+import 'package:avalanche/features/stats/widget/stats_card.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class ConnectionStatsCard extends HookConsumerWidget {

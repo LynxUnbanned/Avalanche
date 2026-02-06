@@ -3,14 +3,14 @@ import 'dart:io';
 
 import 'package:flutter/services.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:hiddify/core/model/directories.dart';
-import 'package:hiddify/singbox/model/singbox_config_option.dart';
-import 'package:hiddify/singbox/model/singbox_outbound.dart';
-import 'package:hiddify/singbox/model/singbox_stats.dart';
-import 'package:hiddify/singbox/model/singbox_status.dart';
-import 'package:hiddify/singbox/model/warp_account.dart';
-import 'package:hiddify/singbox/service/singbox_service.dart';
-import 'package:hiddify/utils/custom_loggers.dart';
+import 'package:avalanche/core/model/directories.dart';
+import 'package:avalanche/singbox/model/singbox_config_option.dart';
+import 'package:avalanche/singbox/model/singbox_outbound.dart';
+import 'package:avalanche/singbox/model/singbox_stats.dart';
+import 'package:avalanche/singbox/model/singbox_status.dart';
+import 'package:avalanche/singbox/model/warp_account.dart';
+import 'package:avalanche/singbox/service/singbox_service.dart';
+import 'package:avalanche/utils/custom_loggers.dart';
 import 'package:rxdart/rxdart.dart';
 
 class PlatformSingboxService with InfraLogger implements SingboxService {

@@ -1,6 +1,6 @@
-import 'package:hiddify/features/settings/data/settings_data_providers.dart';
-import 'package:hiddify/singbox/service/singbox_service_provider.dart';
-import 'package:hiddify/utils/custom_loggers.dart';
+import 'package:avalanche/features/settings/data/settings_data_providers.dart';
+import 'package:avalanche/singbox/service/singbox_service_provider.dart';
+import 'package:avalanche/utils/custom_loggers.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'platform_settings_notifier.g.dart';

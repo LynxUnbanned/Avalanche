@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hiddify/core/model/failures.dart';
+import 'package:avalanche/core/model/failures.dart';
 
 class CustomAlertDialog extends StatelessWidget {
   const CustomAlertDialog({

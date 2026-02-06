@@ -1,5 +1,5 @@
-import 'package:hiddify/core/preferences/preferences_provider.dart';
-import 'package:hiddify/features/config_option/data/config_option_repository.dart';
+import 'package:avalanche/core/preferences/preferences_provider.dart';
+import 'package:avalanche/features/config_option/data/config_option_repository.dart';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
