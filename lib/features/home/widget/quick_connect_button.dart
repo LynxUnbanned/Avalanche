@@ -85,7 +85,7 @@ class QuickConnectButton extends HookConsumerWidget {
                   children: [
                     Icon(
                       isConnected 
-                          ? FluentIcons.lightning_24_filled
+                          ? FluentIcons.flash_24_filled
                           : FluentIcons.flash_24_filled,
                       color: Colors.white,
                       size: 22,

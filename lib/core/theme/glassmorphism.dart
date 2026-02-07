@@ -33,6 +33,9 @@ class GlassmorphismTheme extends ThemeExtension<GlassmorphismTheme> {
   
   /// Shadow color for depth
   final Color shadowColor;
+  
+  /// Glass color computed from surface opacity
+  Color get glassColor => Colors.white.withOpacity(surfaceOpacity);
 
   /// Dark theme preset - deep space blue aesthetic
   static const dark = GlassmorphismTheme(

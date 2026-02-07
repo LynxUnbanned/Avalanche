@@ -68,6 +68,22 @@ class FrostedGlass {
 class AvalancheTheme {
   AvalancheTheme._();
   
+  // Static color proxies for convenience (delegates to AvalancheColors)
+  static Color get iceBlue => AvalancheColors.iceBlue;
+  static Color get deepIce => AvalancheColors.deepIce;
+  static Color get frostWhite => AvalancheColors.frostWhite;
+  static Color get deepNavy => AvalancheColors.deepNavy;
+  static Color get midnightBlue => AvalancheColors.midnightBlue;
+  static Color get darkSlate => AvalancheColors.darkSlate;
+  static Color get auroraPurple => AvalancheColors.auroraPurple;
+  static Color get auroraGreen => AvalancheColors.auroraGreen;
+  static Color get snowWhite => AvalancheColors.snowWhite;
+  static Color get connected => AvalancheColors.connected;
+  static Color get disconnected => AvalancheColors.disconnected;
+  static Color get connecting => AvalancheColors.connecting;
+  static Color get frostedSurface => AvalancheColors.frostedSurface;
+  static Color get frostedBorder => AvalancheColors.frostedBorder;
+  
   static ThemeData get dark {
     return ThemeData(
       useMaterial3: true,
