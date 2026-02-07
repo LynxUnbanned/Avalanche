@@ -344,7 +344,7 @@ class _FrostedAppBar extends StatelessWidget {
         left: 0,
         right: 0,
       ),
-      borderRadius: BorderRadius.zero,
+      borderRadius: 0,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       child: Row(
         children: [

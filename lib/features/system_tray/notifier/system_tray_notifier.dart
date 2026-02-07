@@ -11,7 +11,6 @@ import 'package:avalanche/features/connection/model/connection_status.dart';
 import 'package:avalanche/features/connection/notifier/connection_notifier.dart';
 import 'package:avalanche/features/proxy/active/active_proxy_notifier.dart';
 import 'package:avalanche/features/proxy/overview/proxies_overview_notifier.dart';
-import 'package:avalanche/features/geo_ip/notifier/ip_info_notifier.dart';
 import 'package:avalanche/features/window/notifier/window_notifier.dart';
 import 'package:avalanche/gen/assets.gen.dart';
 import 'package:avalanche/singbox/model/singbox_config_enum.dart';
@@ -45,8 +44,8 @@ class SystemTrayNotifier extends _$SystemTrayNotifier with AppLogger {
     // Get IP info for copy functionality
     String? currentIp;
     try {
-      final ipInfo = ref.watch(ipInfoNotifierProvider);
-      if (ipInfo case AsyncData(value: final info)) {
+      final ipInfoAsync = ref.read(ipInfoNotifierProvider);
+      if (ipInfoAsync case AsyncData(value: final info)) {
         currentIp = info.ip;
       }
     } catch (_) {}
@@ -78,7 +77,7 @@ class SystemTrayNotifier extends _$SystemTrayNotifier with AppLogger {
     // Get available proxies for quick-connect submenu
     List<MenuItem> quickConnectItems = [];
     try {
-      final proxiesAsync = ref.watch(proxiesOverviewNotifierProvider);
+      final proxiesAsync = ref.read(proxiesOverviewNotifierProvider);
       if (proxiesAsync case AsyncData(value: final groups)) {
         // Get first proxy group (usually the main selector)
         if (groups.isNotEmpty) {
@@ -143,7 +142,7 @@ class SystemTrayNotifier extends _$SystemTrayNotifier with AppLogger {
         ],
         
         // Copy IP Address option
-        if (currentIp != null && connection case Connected()) ...[
+        if (currentIp != null && connection is Connected) ...[
           MenuItem(
             label: "📋 Copy IP ($currentIp)",
             onClick: (_) async {

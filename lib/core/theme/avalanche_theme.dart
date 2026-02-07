@@ -71,6 +71,7 @@ class AvalancheTheme {
   // Static color proxies for convenience (delegates to AvalancheColors)
   static Color get iceBlue => AvalancheColors.iceBlue;
   static Color get deepIce => AvalancheColors.deepIce;
+  static Color get glacierBlue => AvalancheColors.deepIce; // Alias for deepIce
   static Color get frostWhite => AvalancheColors.frostWhite;
   static Color get deepNavy => AvalancheColors.deepNavy;
   static Color get midnightBlue => AvalancheColors.midnightBlue;
