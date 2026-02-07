@@ -16,4 +16,13 @@ class AppUpdateState with _$AppUpdateState {
   const factory AppUpdateState.ignored(RemoteVersionEntity versionInfo) =
       AppUpdateStateIgnored;
   const factory AppUpdateState.notAvailable() = AppUpdateStateNotAvailable;
+  const factory AppUpdateState.downloading({
+    required RemoteVersionEntity versionInfo,
+    required double progress,
+  }) = AppUpdateStateDownloading;
+  const factory AppUpdateState.downloaded({
+    required RemoteVersionEntity versionInfo,
+    required String filePath,
+  }) = AppUpdateStateDownloaded;
 }
+

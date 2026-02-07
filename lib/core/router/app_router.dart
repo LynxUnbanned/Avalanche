@@ -52,11 +52,8 @@ GoRouter router(RouterRef ref) {
 
 final tabLocations = [
   const HomeRoute().location,
-  const ProxiesRoute().location,
-  const ConfigOptionsRoute().location,
+  const AccountRoute().location,
   const SettingsRoute().location,
-  const LogsOverviewRoute().location,
-  const AboutRoute().location,
 ];
 
 int getCurrentIndex(BuildContext context) {

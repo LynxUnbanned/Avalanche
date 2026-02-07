@@ -15,6 +15,7 @@ import 'package:avalanche/features/profile/overview/profiles_overview_page.dart'
 import 'package:avalanche/features/proxy/overview/proxies_overview_page.dart';
 import 'package:avalanche/features/settings/about/about_page.dart';
 import 'package:avalanche/features/settings/overview/settings_overview_page.dart';
+import 'package:avalanche/features/account/widget/account_page.dart';
 import 'package:avalanche/utils/utils.dart';
 
 part 'routes.g.dart';
@@ -134,6 +135,10 @@ class MobileWrapperRoute extends ShellRouteData {
     TypedGoRoute<AboutRoute>(
       path: "/about",
       name: AboutRoute.name,
+    ),
+    TypedGoRoute<AccountRoute>(
+      path: "/account",
+      name: AccountRoute.name,
     ),
   ],
 )
@@ -362,5 +367,23 @@ class AboutRoute extends GoRouteData {
       );
     }
     return const NoTransitionPage(name: name, child: AboutPage());
+  }
+}
+
+class AccountRoute extends GoRouteData {
+  const AccountRoute();
+  static const name = "Account";
+
+  static final GlobalKey<NavigatorState>? $parentNavigatorKey = _dynamicRootKey;
+
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) {
+    if (useMobileRouter) {
+      return const MaterialPage(
+        name: name,
+        child: AccountPage(),
+      );
+    }
+    return const NoTransitionPage(name: name, child: AccountPage());
   }
 }
