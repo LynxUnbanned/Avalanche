@@ -63,9 +63,9 @@ jobs:
           APP_NAME="$(basename "$APP_PATH")"
           STAGING_DIR="$(mktemp -d)"
           cp -R "$APP_PATH" "$STAGING_DIR/"
+          rm -f "Avalanche-${VERSION}-macOS.dmg"
 
           create-dmg \
-            --overwrite \
             --volname "Avalanche" \
             --window-pos 200 120 \
             --window-size 660 400 \
