@@ -8,6 +8,7 @@ import 'package:avalanche/core/router/router.dart';
 import 'package:avalanche/core/theme/glassmorphism.dart';
 import 'package:avalanche/features/home/widget/connection_button.dart';
 import 'package:avalanche/features/home/widget/empty_profiles_home_body.dart';
+import 'package:avalanche/features/home/widget/quick_connect_button.dart';
 import 'package:avalanche/features/home/widget/world_map_widget.dart';
 import 'package:avalanche/features/profile/notifier/active_profile_notifier.dart';
 import 'package:avalanche/features/profile/widget/profile_tile.dart';
@@ -64,6 +65,18 @@ class HomePage extends HookConsumerWidget {
         if (group.selected.isNotEmpty) {
           selectedProxyId = group.selected;
           break;
+        }
+      }
+    }
+
+    // Find best server (lowest latency) for Quick Connect
+    MapServerData? bestServer;
+    int? bestLatency;
+    for (final server in mapServers) {
+      if (server.delay != null && server.delay! > 0) {
+        if (bestLatency == null || server.delay! < bestLatency) {
+          bestLatency = server.delay;
+          bestServer = server;
         }
       }
     }
@@ -144,6 +157,31 @@ class HomePage extends HookConsumerWidget {
                     ),
                 ],
               ),
+
+          // Quick Connect floating button overlay
+          if (mapServers.isNotEmpty && bestServer != null)
+            QuickConnectOverlay(
+              onQuickConnect: () {
+                if (asyncProxies case AsyncData(value: final groups)) {
+                  // Select best server and connect
+                  for (final group in groups) {
+                    if (group.items.any((p) => p.tag == bestServer!.id)) {
+                      ref.read(proxiesOverviewNotifierProvider.notifier)
+                          .changeProxy(group.tag, bestServer!.id);
+                      // Toggle connection if not connected
+                      if (!isConnected) {
+                        ref.read(connectionNotifierProvider.notifier)
+                            .toggleConnection();
+                      }
+                      break;
+                    }
+                  }
+                }
+              },
+              isConnected: isConnected,
+              bestServerName: bestServer.name,
+              bestServerLatency: bestLatency,
+            ),
             AsyncData() => switch (hasAnyProfile) {
                 AsyncData(value: true) => Column(
                     children: [
