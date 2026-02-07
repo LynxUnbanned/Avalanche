@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:avalanche/core/http_client/dio_http_client.dart';
-import 'package:avalanche/core/utils/exception_handler.dart';
-import 'package:avalanche/features/proxy/model/ip_info_entity.dart';
-import 'package:avalanche/features/proxy/model/proxy_entity.dart';
-import 'package:avalanche/features/proxy/model/proxy_failure.dart';
-import 'package:avalanche/singbox/service/singbox_service.dart';
-import 'package:avalanche/utils/custom_loggers.dart';
+import 'package:hiddify/core/http_client/dio_http_client.dart';
+import 'package:hiddify/core/utils/exception_handler.dart';
+import 'package:hiddify/features/proxy/model/ip_info_entity.dart';
+import 'package:hiddify/features/proxy/model/proxy_entity.dart';
+import 'package:hiddify/features/proxy/model/proxy_failure.dart';
+import 'package:hiddify/singbox/service/singbox_service.dart';
+import 'package:hiddify/utils/custom_loggers.dart';
 
 abstract interface class ProxyRepository {
   Stream<Either<ProxyFailure, List<ProxyGroupEntity>>> watchProxies();

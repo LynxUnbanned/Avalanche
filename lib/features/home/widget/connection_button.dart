@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:gap/gap.dart';
-import 'package:avalanche/core/localization/translations.dart';
-import 'package:avalanche/core/model/failures.dart';
-import 'package:avalanche/core/theme/theme_extensions.dart';
-import 'package:avalanche/core/widget/animated_text.dart';
-import 'package:avalanche/features/config_option/data/config_option_repository.dart';
-import 'package:avalanche/features/config_option/notifier/config_option_notifier.dart';
-import 'package:avalanche/features/connection/model/connection_status.dart';
-import 'package:avalanche/features/connection/notifier/connection_notifier.dart';
-import 'package:avalanche/features/connection/widget/experimental_feature_notice.dart';
-import 'package:avalanche/features/profile/notifier/active_profile_notifier.dart';
-import 'package:avalanche/features/proxy/active/active_proxy_notifier.dart';
-import 'package:avalanche/gen/assets.gen.dart';
-import 'package:avalanche/utils/alerts.dart';
+import 'package:hiddify/core/localization/translations.dart';
+import 'package:hiddify/core/model/failures.dart';
+import 'package:hiddify/core/theme/theme_extensions.dart';
+import 'package:hiddify/core/widget/animated_text.dart';
+import 'package:hiddify/features/config_option/data/config_option_repository.dart';
+import 'package:hiddify/features/config_option/notifier/config_option_notifier.dart';
+import 'package:hiddify/features/connection/model/connection_status.dart';
+import 'package:hiddify/features/connection/notifier/connection_notifier.dart';
+import 'package:hiddify/features/connection/widget/experimental_feature_notice.dart';
+import 'package:hiddify/features/profile/notifier/active_profile_notifier.dart';
+import 'package:hiddify/features/proxy/active/active_proxy_notifier.dart';
+import 'package:hiddify/gen/assets.gen.dart';
+import 'package:hiddify/utils/alerts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // TODO: rewrite
@@ -131,14 +131,8 @@ class _ConnectionButton extends StatelessWidget {
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
-                  blurRadius: 24,
-                  spreadRadius: 4,
-                  color: buttonColor.withOpacity(0.4),
-                ),
-                BoxShadow(
-                  blurRadius: 48,
-                  spreadRadius: 8,
-                  color: buttonColor.withOpacity(0.2),
+                  blurRadius: 16,
+                  color: buttonColor.withOpacity(0.5),
                 ),
               ],
             ),
@@ -147,25 +141,10 @@ class _ConnectionButton extends StatelessWidget {
             child: Material(
               key: const ValueKey("home_connection_button"),
               shape: const CircleBorder(),
-              color: Colors.white.withOpacity(0.15),
+              color: Colors.white,
               child: InkWell(
                 onTap: onTap,
-                child: Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: Colors.white.withOpacity(0.2),
-                      width: 1.5,
-                    ),
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Colors.white.withOpacity(0.15),
-                        Colors.white.withOpacity(0.05),
-                      ],
-                    ),
-                  ),
+                child: Padding(
                   padding: const EdgeInsets.all(36),
                   child: TweenAnimationBuilder(
                     tween: ColorTween(end: buttonColor),

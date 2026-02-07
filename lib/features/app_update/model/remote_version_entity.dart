@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:avalanche/core/model/environment.dart';
+import 'package:hiddify/core/model/environment.dart';
 
 part 'remote_version_entity.freezed.dart';
 
@@ -19,7 +19,4 @@ class RemoteVersionEntity with _$RemoteVersionEntity {
 
   String get presentVersion =>
       flavor == Environment.prod ? version : "$version ${flavor.name}";
-  
-  /// Alias for url field - provides the download URL for the update
-  String? get downloadUrl => url.isNotEmpty ? url : null;
 }

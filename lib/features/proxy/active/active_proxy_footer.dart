@@ -2,16 +2,15 @@ import 'package:dartx/dartx.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:avalanche/core/localization/translations.dart';
-import 'package:avalanche/core/theme/glassmorphism.dart';
-import 'package:avalanche/core/widget/animated_visibility.dart';
-import 'package:avalanche/core/widget/shimmer_skeleton.dart';
-import 'package:avalanche/features/proxy/active/active_proxy_notifier.dart';
-import 'package:avalanche/features/proxy/active/ip_widget.dart';
-import 'package:avalanche/features/proxy/model/proxy_failure.dart';
-import 'package:avalanche/features/stats/notifier/stats_notifier.dart';
-import 'package:avalanche/gen/fonts.gen.dart';
-import 'package:avalanche/utils/utils.dart';
+import 'package:hiddify/core/localization/translations.dart';
+import 'package:hiddify/core/widget/animated_visibility.dart';
+import 'package:hiddify/core/widget/shimmer_skeleton.dart';
+import 'package:hiddify/features/proxy/active/active_proxy_notifier.dart';
+import 'package:hiddify/features/proxy/active/ip_widget.dart';
+import 'package:hiddify/features/proxy/model/proxy_failure.dart';
+import 'package:hiddify/features/stats/notifier/stats_notifier.dart';
+import 'package:hiddify/gen/fonts.gen.dart';
+import 'package:hiddify/utils/utils.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class ActiveProxyFooter extends HookConsumerWidget {
@@ -27,8 +26,8 @@ class ActiveProxyFooter extends HookConsumerWidget {
       axis: Axis.vertical,
       visible: activeProxy is AsyncData,
       child: switch (activeProxy) {
-        AsyncData(value: final proxy) => FrostedContainer(
-            margin: const EdgeInsets.symmetric(horizontal: 16),
+        AsyncData(value: final proxy) => Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

@@ -1,8 +1,8 @@
-import 'package:avalanche/features/connection/notifier/connection_notifier.dart';
-import 'package:avalanche/features/stats/data/stats_data_providers.dart';
-import 'package:avalanche/features/stats/model/stats_entity.dart';
-import 'package:avalanche/utils/custom_loggers.dart';
-import 'package:avalanche/utils/riverpod_utils.dart';
+import 'package:hiddify/features/connection/notifier/connection_notifier.dart';
+import 'package:hiddify/features/stats/data/stats_data_providers.dart';
+import 'package:hiddify/features/stats/model/stats_entity.dart';
+import 'package:hiddify/utils/custom_loggers.dart';
+import 'package:hiddify/utils/riverpod_utils.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'stats_notifier.g.dart';

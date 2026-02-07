@@ -1,9 +1,9 @@
 import 'package:fpdart/fpdart.dart';
-import 'package:avalanche/core/utils/exception_handler.dart';
-import 'package:avalanche/features/stats/model/stats_entity.dart';
-import 'package:avalanche/features/stats/model/stats_failure.dart';
-import 'package:avalanche/singbox/service/singbox_service.dart';
-import 'package:avalanche/utils/custom_loggers.dart';
+import 'package:hiddify/core/utils/exception_handler.dart';
+import 'package:hiddify/features/stats/model/stats_entity.dart';
+import 'package:hiddify/features/stats/model/stats_failure.dart';
+import 'package:hiddify/singbox/service/singbox_service.dart';
+import 'package:hiddify/utils/custom_loggers.dart';
 
 abstract interface class StatsRepository {
   Stream<Either<StatsFailure, StatsEntity>> watchStats();

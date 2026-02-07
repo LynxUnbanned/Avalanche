@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:avalanche/features/per_app_proxy/model/installed_package_info.dart';
-import 'package:avalanche/utils/utils.dart';
+import 'package:hiddify/features/per_app_proxy/model/installed_package_info.dart';
+import 'package:hiddify/utils/utils.dart';
 
 abstract interface class PerAppProxyRepository {
   TaskEither<String, List<InstalledPackageInfo>> getInstalledPackages();

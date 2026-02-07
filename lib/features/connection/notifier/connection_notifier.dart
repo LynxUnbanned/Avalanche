@@ -1,13 +1,13 @@
 import 'dart:io';
 
-import 'package:avalanche/core/haptic/haptic_service.dart';
-import 'package:avalanche/core/preferences/general_preferences.dart';
-import 'package:avalanche/features/connection/data/connection_data_providers.dart';
-import 'package:avalanche/features/connection/data/connection_repository.dart';
-import 'package:avalanche/features/connection/model/connection_status.dart';
-import 'package:avalanche/features/profile/model/profile_entity.dart';
-import 'package:avalanche/features/profile/notifier/active_profile_notifier.dart';
-import 'package:avalanche/utils/utils.dart';
+import 'package:hiddify/core/haptic/haptic_service.dart';
+import 'package:hiddify/core/preferences/general_preferences.dart';
+import 'package:hiddify/features/connection/data/connection_data_providers.dart';
+import 'package:hiddify/features/connection/data/connection_repository.dart';
+import 'package:hiddify/features/connection/model/connection_status.dart';
+import 'package:hiddify/features/profile/model/profile_entity.dart';
+import 'package:hiddify/features/profile/notifier/active_profile_notifier.dart';
+import 'package:hiddify/utils/utils.dart';
 import 'package:in_app_review/in_app_review.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:rxdart/rxdart.dart';

@@ -1,4 +1,4 @@
-import 'package:avalanche/gen/translations.g.dart';
+import 'package:hiddify/gen/translations.g.dart';
 
 enum ActionsAtClosing {
   ask,

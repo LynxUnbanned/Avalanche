@@ -1,9 +1,9 @@
 import 'package:dartx/dartx.dart';
-import 'package:avalanche/core/preferences/general_preferences.dart';
-import 'package:avalanche/core/preferences/preferences_provider.dart';
-import 'package:avalanche/features/profile/data/profile_data_providers.dart';
-import 'package:avalanche/features/profile/model/profile_entity.dart';
-import 'package:avalanche/utils/custom_loggers.dart';
+import 'package:hiddify/core/preferences/general_preferences.dart';
+import 'package:hiddify/core/preferences/preferences_provider.dart';
+import 'package:hiddify/features/profile/data/profile_data_providers.dart';
+import 'package:hiddify/features/profile/model/profile_entity.dart';
+import 'package:hiddify/utils/custom_loggers.dart';
 import 'package:meta/meta.dart';
 import 'package:neat_periodic_task/neat_periodic_task.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';

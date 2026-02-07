@@ -1,8 +1,8 @@
 import 'package:drift/drift.dart';
-import 'package:avalanche/core/database/app_database.dart';
-import 'package:avalanche/core/database/tables/database_tables.dart';
-import 'package:avalanche/features/geo_asset/model/geo_asset_entity.dart';
-import 'package:avalanche/utils/custom_loggers.dart';
+import 'package:hiddify/core/database/app_database.dart';
+import 'package:hiddify/core/database/tables/database_tables.dart';
+import 'package:hiddify/features/geo_asset/model/geo_asset_entity.dart';
+import 'package:hiddify/utils/custom_loggers.dart';
 
 part 'geo_asset_data_source.g.dart';
 

@@ -1,9 +1,9 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
-import 'package:avalanche/core/localization/translations.dart';
-import 'package:avalanche/core/router/router.dart';
-import 'package:avalanche/features/stats/widget/side_bar_stats_overview.dart';
+import 'package:hiddify/core/localization/translations.dart';
+import 'package:hiddify/core/router/router.dart';
+import 'package:hiddify/features/stats/widget/side_bar_stats_overview.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 abstract interface class RootScaffold {
@@ -26,16 +26,28 @@ class AdaptiveRootScaffold extends HookConsumerWidget {
 
     final destinations = [
       NavigationDestination(
-        icon: const Icon(FluentIcons.globe_20_filled),
+        icon: const Icon(FluentIcons.power_20_filled),
         label: t.home.pageTitle,
       ),
       NavigationDestination(
-        icon: const Icon(FluentIcons.person_20_filled),
-        label: 'Account', // TODO: Add to translations
+        icon: const Icon(FluentIcons.filter_20_filled),
+        label: t.proxies.pageTitle,
+      ),
+      NavigationDestination(
+        icon: const Icon(FluentIcons.box_edit_20_filled),
+        label: t.config.pageTitle,
       ),
       NavigationDestination(
         icon: const Icon(FluentIcons.settings_20_filled),
         label: t.settings.pageTitle,
+      ),
+      NavigationDestination(
+        icon: const Icon(FluentIcons.document_text_20_filled),
+        label: t.logs.pageTitle,
+      ),
+      NavigationDestination(
+        icon: const Icon(FluentIcons.info_20_filled),
+        label: t.about.pageTitle,
       ),
     ];
 

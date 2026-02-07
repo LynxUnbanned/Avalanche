@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
-import 'package:avalanche/core/localization/translations.dart';
-import 'package:avalanche/utils/utils.dart';
+import 'package:hiddify/core/localization/translations.dart';
+import 'package:hiddify/utils/utils.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class SettingsInputDialog<T> extends HookConsumerWidget with PresLogger {

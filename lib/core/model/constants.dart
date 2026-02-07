@@ -1,16 +1,15 @@
 abstract class Constants {
-  static const appName = "Avalanche";
-  static const githubUrl = "https://github.com/LynxUnbanned/Avalanche";
+  static const appName = "Hiddify";
+  static const githubUrl = "https://github.com/hiddify/hiddify-next";
   static const githubReleasesApiUrl =
-      "https://api.github.com/repos/LynxUnbanned/Avalanche/releases";
+      "https://api.github.com/repos/hiddify/hiddify-next/releases";
   static const githubLatestReleaseUrl =
-      "https://github.com/LynxUnbanned/Avalanche/releases/latest";
+      "https://github.com/hiddify/hiddify-next/releases/latest";
   static const appCastUrl =
-      "https://raw.githubusercontent.com/LynxUnbanned/Avalanche/main/appcast.xml";
-  // Support channels - update when available
-  static const telegramChannelUrl = ""; // TODO: Add support channel
-  static const privacyPolicyUrl = ""; // TODO: Add privacy policy URL
-  static const termsAndConditionsUrl = ""; // TODO: Add terms URL
+      "https://raw.githubusercontent.com/hiddify/hiddify-next/main/appcast.xml";
+  static const telegramChannelUrl = "https://t.me/hiddify";
+  static const privacyPolicyUrl = "https://hiddify.com/privacy-policy/";
+  static const termsAndConditionsUrl = "https://hiddify.com/terms/";
   static const cfWarpPrivacyPolicy =
       "https://www.cloudflare.com/application/privacypolicy/";
   static const cfWarpTermsOfService =

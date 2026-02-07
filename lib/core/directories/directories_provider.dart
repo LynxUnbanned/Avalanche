@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/services.dart';
-import 'package:avalanche/core/model/directories.dart';
-import 'package:avalanche/utils/custom_loggers.dart';
+import 'package:hiddify/core/model/directories.dart';
+import 'package:hiddify/utils/custom_loggers.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

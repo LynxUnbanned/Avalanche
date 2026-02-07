@@ -1,8 +1,8 @@
-import 'package:avalanche/core/localization/locale_preferences.dart';
-import 'package:avalanche/gen/translations.g.dart';
+import 'package:hiddify/core/localization/locale_preferences.dart';
+import 'package:hiddify/gen/translations.g.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-export 'package:avalanche/gen/translations.g.dart';
+export 'package:hiddify/gen/translations.g.dart';
 
 part 'translations.g.dart';
 

@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:avalanche/gen/fonts.gen.dart';
-import 'package:avalanche/gen/translations.g.dart';
+import 'package:hiddify/gen/fonts.gen.dart';
+import 'package:hiddify/gen/translations.g.dart';
 
 extension AppLocaleX on AppLocale {
   String get preferredFontFamily => this == AppLocale.fa ? FontFamily.shabnam : (!Platform.isWindows ? "" : FontFamily.emoji);

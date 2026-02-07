@@ -1,4 +1,4 @@
-import 'package:avalanche/core/localization/translations.dart';
+import 'package:hiddify/core/localization/translations.dart';
 
 enum Region {
   ir,

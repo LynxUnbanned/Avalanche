@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:avalanche/core/router/router.dart';
-import 'package:avalanche/features/window/notifier/window_notifier.dart';
+import 'package:hiddify/core/router/router.dart';
+import 'package:hiddify/features/window/notifier/window_notifier.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class ShortcutWrapper extends HookConsumerWidget {

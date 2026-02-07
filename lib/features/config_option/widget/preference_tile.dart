@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:avalanche/core/utils/preferences_utils.dart';
-import 'package:avalanche/features/settings/widgets/widgets.dart';
+import 'package:hiddify/core/utils/preferences_utils.dart';
+import 'package:hiddify/features/settings/widgets/widgets.dart';
 
 class ValuePreferenceWidget<T> extends StatelessWidget {
   const ValuePreferenceWidget({

@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:avalanche/features/app_update/model/app_update_failure.dart';
-import 'package:avalanche/features/app_update/model/remote_version_entity.dart';
+import 'package:hiddify/features/app_update/model/app_update_failure.dart';
+import 'package:hiddify/features/app_update/model/remote_version_entity.dart';
 
 part 'app_update_state.freezed.dart';
 
@@ -16,13 +16,4 @@ class AppUpdateState with _$AppUpdateState {
   const factory AppUpdateState.ignored(RemoteVersionEntity versionInfo) =
       AppUpdateStateIgnored;
   const factory AppUpdateState.notAvailable() = AppUpdateStateNotAvailable;
-  const factory AppUpdateState.downloading({
-    required RemoteVersionEntity versionInfo,
-    required double progress,
-  }) = AppUpdateStateDownloading;
-  const factory AppUpdateState.downloaded({
-    required RemoteVersionEntity versionInfo,
-    required String filePath,
-  }) = AppUpdateStateDownloaded;
 }
-

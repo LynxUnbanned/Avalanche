@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:avalanche/utils/utils.dart';
+import 'package:hiddify/utils/utils.dart';
 import 'package:protocol_handler/protocol_handler.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

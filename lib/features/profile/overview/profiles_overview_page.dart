@@ -1,15 +1,15 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:avalanche/core/localization/translations.dart';
-import 'package:avalanche/core/model/failures.dart';
-import 'package:avalanche/core/notification/in_app_notification_controller.dart';
-import 'package:avalanche/core/router/router.dart';
-import 'package:avalanche/features/profile/model/profile_sort_enum.dart';
-import 'package:avalanche/features/profile/notifier/profiles_update_notifier.dart';
-import 'package:avalanche/features/profile/overview/profiles_overview_notifier.dart';
-import 'package:avalanche/features/profile/widget/profile_tile.dart';
-import 'package:avalanche/utils/placeholders.dart';
+import 'package:hiddify/core/localization/translations.dart';
+import 'package:hiddify/core/model/failures.dart';
+import 'package:hiddify/core/notification/in_app_notification_controller.dart';
+import 'package:hiddify/core/router/router.dart';
+import 'package:hiddify/features/profile/model/profile_sort_enum.dart';
+import 'package:hiddify/features/profile/notifier/profiles_update_notifier.dart';
+import 'package:hiddify/features/profile/overview/profiles_overview_notifier.dart';
+import 'package:hiddify/features/profile/widget/profile_tile.dart';
+import 'package:hiddify/utils/placeholders.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class ProfilesOverviewModal extends HookConsumerWidget {

@@ -1,6 +1,6 @@
 import 'package:drift/drift.dart';
-import 'package:avalanche/core/database/app_database.dart';
-import 'package:avalanche/features/profile/model/profile_entity.dart';
+import 'package:hiddify/core/database/app_database.dart';
+import 'package:hiddify/features/profile/model/profile_entity.dart';
 
 extension ProfileEntityMapper on ProfileEntity {
   ProfileEntriesCompanion toEntry() {

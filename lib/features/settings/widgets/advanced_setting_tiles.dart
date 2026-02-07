@@ -2,12 +2,12 @@ import 'dart:io';
 
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:avalanche/core/localization/translations.dart';
-import 'package:avalanche/core/preferences/general_preferences.dart';
-import 'package:avalanche/core/router/router.dart';
-import 'package:avalanche/features/common/general_pref_tiles.dart';
-import 'package:avalanche/features/per_app_proxy/model/per_app_proxy_mode.dart';
-import 'package:avalanche/features/settings/notifier/platform_settings_notifier.dart';
+import 'package:hiddify/core/localization/translations.dart';
+import 'package:hiddify/core/preferences/general_preferences.dart';
+import 'package:hiddify/core/router/router.dart';
+import 'package:hiddify/features/common/general_pref_tiles.dart';
+import 'package:hiddify/features/per_app_proxy/model/per_app_proxy_mode.dart';
+import 'package:hiddify/features/settings/notifier/platform_settings_notifier.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class AdvancedSettingTiles extends HookConsumerWidget {

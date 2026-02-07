@@ -1,6 +1,6 @@
 import 'package:drift/drift.dart';
-import 'package:avalanche/core/database/app_database.dart';
-import 'package:avalanche/features/geo_asset/model/geo_asset_entity.dart';
+import 'package:hiddify/core/database/app_database.dart';
+import 'package:hiddify/features/geo_asset/model/geo_asset_entity.dart';
 
 extension GeoAssetEntityMapper on GeoAssetEntity {
   GeoAssetEntriesCompanion toEntry() {

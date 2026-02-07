@@ -1,16 +1,16 @@
 import 'package:fpdart/fpdart.dart';
-import 'package:avalanche/core/model/directories.dart';
-import 'package:avalanche/core/utils/exception_handler.dart';
-import 'package:avalanche/features/config_option/data/config_option_repository.dart';
-import 'package:avalanche/features/connection/data/connection_platform_source.dart';
-import 'package:avalanche/features/connection/model/connection_failure.dart';
-import 'package:avalanche/features/connection/model/connection_status.dart';
+import 'package:hiddify/core/model/directories.dart';
+import 'package:hiddify/core/utils/exception_handler.dart';
+import 'package:hiddify/features/config_option/data/config_option_repository.dart';
+import 'package:hiddify/features/connection/data/connection_platform_source.dart';
+import 'package:hiddify/features/connection/model/connection_failure.dart';
+import 'package:hiddify/features/connection/model/connection_status.dart';
 
-import 'package:avalanche/features/profile/data/profile_path_resolver.dart';
-import 'package:avalanche/singbox/model/singbox_config_option.dart';
-import 'package:avalanche/singbox/model/singbox_status.dart';
-import 'package:avalanche/singbox/service/singbox_service.dart';
-import 'package:avalanche/utils/utils.dart';
+import 'package:hiddify/features/profile/data/profile_path_resolver.dart';
+import 'package:hiddify/singbox/model/singbox_config_option.dart';
+import 'package:hiddify/singbox/model/singbox_status.dart';
+import 'package:hiddify/singbox/service/singbox_service.dart';
+import 'package:hiddify/utils/utils.dart';
 import 'package:meta/meta.dart';
 
 abstract interface class ConnectionRepository {
