@@ -157,31 +157,6 @@ class HomePage extends HookConsumerWidget {
                     ),
                 ],
               ),
-
-          // Quick Connect floating button overlay
-          if (mapServers.isNotEmpty && bestServer != null)
-            QuickConnectOverlay(
-              onQuickConnect: () {
-                if (asyncProxies case AsyncData(value: final groups)) {
-                  // Select best server and connect
-                  for (final group in groups) {
-                    if (group.items.any((p) => p.tag == bestServer!.id)) {
-                      ref.read(proxiesOverviewNotifierProvider.notifier)
-                          .changeProxy(group.tag, bestServer!.id);
-                      // Toggle connection if not connected
-                      if (!isConnected) {
-                        ref.read(connectionNotifierProvider.notifier)
-                            .toggleConnection();
-                      }
-                      break;
-                    }
-                  }
-                }
-              },
-              isConnected: isConnected,
-              bestServerName: bestServer.name,
-              bestServerLatency: bestLatency,
-            ),
             AsyncData() => switch (hasAnyProfile) {
                 AsyncData(value: true) => Column(
                     children: [
@@ -215,6 +190,31 @@ class HomePage extends HookConsumerWidget {
                 ],
               ),
           },
+
+          // Quick Connect floating button overlay
+          if (mapServers.isNotEmpty && bestServer != null)
+            QuickConnectOverlay(
+              onQuickConnect: () {
+                if (asyncProxies case AsyncData(value: final groups)) {
+                  // Select best server and connect
+                  for (final group in groups) {
+                    if (group.items.any((p) => p.tag == bestServer!.id)) {
+                      ref.read(proxiesOverviewNotifierProvider.notifier)
+                          .changeProxy(group.tag, bestServer!.id);
+                      // Toggle connection if not connected
+                      if (!isConnected) {
+                        ref.read(connectionNotifierProvider.notifier)
+                            .toggleConnection();
+                      }
+                      break;
+                    }
+                  }
+                }
+              },
+              isConnected: isConnected,
+              bestServerName: bestServer.name,
+              bestServerLatency: bestLatency,
+            ),
         ],
       ),
     );
