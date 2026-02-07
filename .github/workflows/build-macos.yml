@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     tags:
-      - 'v*'
+      - "v*"
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -12,65 +12,89 @@ on:
 jobs:
   build:
     runs-on: macos-14 # Apple Silicon runner
-    
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        submodules: recursive
-        
-    - name: Setup Flutter
-      uses: subosito/flutter-action@v2
-      with:
-        flutter-version: '3.24.0'
-        channel: 'stable'
-        cache: true
-        
-    - name: Get dependencies
-      run: flutter pub get
-        
-    - name: Run code generation
-      run: dart run build_runner build --delete-conflicting-outputs
-      
-    - name: Build macOS app
-      run: flutter build macos --release
-      
-    - name: Create DMG
-      run: |
-        # Install create-dmg
-        brew install create-dmg
-        
-        # Get version from pubspec
-        VERSION=$(grep '^version:' pubspec.yaml | cut -d ' ' -f 2 | cut -d '+' -f 1)
-        
-        # Create DMG
-        create-dmg \
-          --volname "Avalanche" \
-          --window-pos 200 120 \
-          --window-size 660 400 \
-          --icon-size 100 \
-          --icon "Avalanche.app" 180 170 \
-          --hide-extension "Avalanche.app" \
-          --app-drop-link 480 170 \
-          --no-internet-enable \
-          "Avalanche-${VERSION}-macOS.dmg" \
-          "build/macos/Build/Products/Release/Avalanche.app" || true
-          
-    - name: Upload macOS app
-      uses: actions/upload-artifact@v4
-      with:
-        name: avalanche-macos-app
-        path: |
-          build/macos/Build/Products/Release/Avalanche.app
-        retention-days: 14
-        
-    - name: Upload DMG
-      uses: actions/upload-artifact@v4
-      with:
-        name: avalanche-macos-dmg
-        path: ./*.dmg
-        retention-days: 14
-        if-no-files-found: ignore
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.24.0"
+          channel: stable
+          cache: true
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Run code generation
+        run: dart run build_runner build --delete-conflicting-outputs
+
+      - name: Prepare libcore for macOS
+        run: |
+          set -euo pipefail
+          make CHANNEL=prod macos-libs
+          test -f libcore/bin/libcore.dylib
+          ls -la libcore/bin
+
+      - name: Build macOS app
+        run: flutter build macos --release
+
+      - name: Create DMG
+        run: |
+          set -euo pipefail
+          brew install create-dmg
+
+          VERSION=$(grep '^version:' pubspec.yaml | cut -d ' ' -f 2 | cut -d '+' -f 1)
+          APP_PATH="build/macos/Build/Products/Release/Avalanche.app"
+
+          if [ ! -d "$APP_PATH" ]; then
+            APP_PATH="build/macos/Build/Products/Release/Hiddify.app"
+          fi
+
+          if [ ! -d "$APP_PATH" ]; then
+            echo "No macOS app bundle found in build/macos/Build/Products/Release"
+            ls -la build/macos/Build/Products/Release || true
+            exit 1
+          fi
+
+          APP_NAME="$(basename "$APP_PATH")"
+          STAGING_DIR="$(mktemp -d)"
+          cp -R "$APP_PATH" "$STAGING_DIR/"
+
+          create-dmg \
+            --overwrite \
+            --volname "Avalanche" \
+            --window-pos 200 120 \
+            --window-size 660 400 \
+            --icon-size 100 \
+            --icon "$APP_NAME" 180 170 \
+            --hide-extension "$APP_NAME" \
+            --app-drop-link 480 170 \
+            --no-internet-enable \
+            "Avalanche-${VERSION}-macOS.dmg" \
+            "$STAGING_DIR"
+
+          test -f "Avalanche-${VERSION}-macOS.dmg"
+          rm -rf "$STAGING_DIR"
+
+      - name: Upload macOS app
+        uses: actions/upload-artifact@v4
+        with:
+          name: avalanche-macos-app
+          path: build/macos/Build/Products/Release/*.app
+          retention-days: 14
+          if-no-files-found: error
+
+      - name: Upload DMG
+        uses: actions/upload-artifact@v4
+        with:
+          name: avalanche-macos-dmg
+          path: ./*.dmg
+          retention-days: 14
+          if-no-files-found: error
 
   release:
     needs: build
@@ -78,20 +102,20 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      
+
     steps:
-    - name: Download DMG artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: avalanche-macos-dmg
-        path: ./release
-        
-    - name: Create GitHub Release
-      uses: softprops/action-gh-release@v1
-      with:
-        files: ./release/*.dmg
-        generate_release_notes: true
-        draft: false
-        prerelease: ${{ contains(github.ref, 'beta') || contains(github.ref, 'alpha') }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Download DMG artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: avalanche-macos-dmg
+          path: ./release
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ./release/*.dmg
+          generate_release_notes: true
+          draft: false
+          prerelease: ${{ contains(github.ref, 'beta') || contains(github.ref, 'alpha') }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
