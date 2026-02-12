@@ -1,0 +1,39 @@
+name: Build macOS DMG
+
+on:
+  push:
+
+env:
+  IS_GITHUB_ACTIONS: 1
+  CHANNEL: dev
+  FLUTTER_VERSION: "3.24.0"
+  SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+
+jobs:
+  build-macos-dmg:
+    runs-on: macos-13
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+
+      - name: Install packaging dependencies
+        run: make macos-install-dependencies
+
+      - name: Prepare macOS build
+        run: make macos-prepare
+
+      - name: Build DMG only
+        run: |
+          flutter_distributor package \
+            --platform macos \
+            --targets dmg \
+            --skip-clean \
+            --build-target lib/main.dart \
+            --build-dart-define sentry_dsn=${SENTRY_DSN}
