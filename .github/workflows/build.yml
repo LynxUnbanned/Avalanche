@@ -13,7 +13,7 @@ env:
 
 jobs:
   build-macos-dmg:
-    runs-on: macos-latest
+    runs-on: macos-14
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,6 +24,9 @@ jobs:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           channel: stable
           cache: true
+
+      - name: Show Xcode version
+        run: xcodebuild -version
 
       - name: Install packaging dependencies
         run: make macos-install-dependencies
