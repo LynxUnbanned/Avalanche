@@ -1,4 +1,4 @@
-name: Build macOS DMG
+name: Build Avalanche macOS DMG
 
 on:
   push:
@@ -8,6 +8,8 @@ env:
   CHANNEL: dev
   FLUTTER_VERSION: "3.24.0"
   SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+  SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+  SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
 
 jobs:
   build-macos-dmg:
@@ -36,4 +38,17 @@ jobs:
             --targets dmg \
             --skip-clean \
             --build-target lib/main.dart \
-            --build-dart-define sentry_dsn=${SENTRY_DSN}
+            --build-dart-define sentry_dsn=${SENTRY_DSN} \
+            --build-dart-define SUPABASE_URL=${SUPABASE_URL} \
+            --build-dart-define SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+
+      - name: Show build artifacts
+        run: |
+          ls -R dist || true
+
+      - name: Upload DMG artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: avalanche-macos-dmg
+          path: dist/**/*.dmg
+          if-no-files-found: error

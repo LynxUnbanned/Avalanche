@@ -244,7 +244,6 @@ class AddProfileModal extends HookConsumerWidget {
     final _warp = ref.read(warpOptionNotifierProvider.notifier);
     final _profile = ref.read(addProfileProvider.notifier);
     final consent = (_prefs.getBool(warpConsentGiven) ?? false);
-    final region = ref.read(ConfigOptions.region.notifier).raw();
     context.pop();
 
     final t = ref.read(translationsProvider);
@@ -264,21 +263,27 @@ class AddProfileModal extends HookConsumerWidget {
     await _warp.generateWarpConfig();
     toast?.start();
 
-    // final accountId = _prefs.getString("warp2-account-id");
-    // final accessToken = _prefs.getString("warp2-access-token");
-    // final hasWarp2Config = accountId != null && accessToken != null;
-
-    // if (!hasWarp2Config || true) {
     toast = notification.showInfoToast(t.profile.add.addingWarpMsg, duration: const Duration(milliseconds: 100));
     toast?.pause();
     await _warp.generateWarp2Config();
     toast?.start();
-    // }
-    if (region == "cn") {
-      await _profile.add("#profile-title: Hiddify WARP\nwarp://p1@auto#National&&detour=warp://p2@auto#WoW"); //
-    } else {
-      await _profile.add("https://raw.githubusercontent.com/hiddify/hiddify-next/main/test.configs/warp"); //
+
+    final warpAccountId = ref.read(ConfigOptions.warpAccountId);
+    final warp2AccountId = ref.read(ConfigOptions.warp2AccountId);
+    final hasRealWarpData = warpAccountId.isNotEmpty && warp2AccountId.isNotEmpty;
+    if (!hasRealWarpData) {
+      notification.showErrorToast(
+        "Unable to create WARP profile from real account data.",
+      );
+      return;
     }
+
+    final primaryLen = warpAccountId.length < 6 ? warpAccountId.length : 6;
+    final secondaryLen = warp2AccountId.length < 6 ? warp2AccountId.length : 6;
+    final primaryName = "WARP-${warpAccountId.substring(0, primaryLen)}";
+    final secondaryName = "WARP2-${warp2AccountId.substring(0, secondaryLen)}";
+    final dynamicWarpContent = "#profile-title: Avalanche WARP\nwarp://p1@auto#$primaryName&&detour=warp://p2@auto#$secondaryName";
+    await _profile.add(dynamicWarpContent);
   }
 }
 

@@ -78,7 +78,7 @@ class AboutPage extends HookConsumerWidget {
       body: CustomScrollView(
         slivers: [
           NestedAppBar(
-            title: Text(t.about.pageTitle),
+            title: Text("About Avalanche"),
             actions: [
               PopupMenuButton(
                 icon: Icon(AdaptiveIcon(context).more),
@@ -109,7 +109,7 @@ class AboutPage extends HookConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        t.general.appTitle,
+                        "Avalanche",
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
                       const Gap(4),
@@ -128,38 +128,11 @@ class AboutPage extends HookConsumerWidget {
                 ...conditionalTiles,
                 if (conditionalTiles.isNotEmpty) const Divider(),
                 ListTile(
-                  title: Text(t.about.sourceCode),
+                  title: const Text("Source Code"),
                   trailing: const Icon(FluentIcons.open_24_regular),
                   onTap: () async {
                     await UriUtils.tryLaunch(
                       Uri.parse(Constants.githubUrl),
-                    );
-                  },
-                ),
-                ListTile(
-                  title: Text(t.about.telegramChannel),
-                  trailing: const Icon(FluentIcons.open_24_regular),
-                  onTap: () async {
-                    await UriUtils.tryLaunch(
-                      Uri.parse(Constants.telegramChannelUrl),
-                    );
-                  },
-                ),
-                ListTile(
-                  title: Text(t.about.termsAndConditions),
-                  trailing: const Icon(FluentIcons.open_24_regular),
-                  onTap: () async {
-                    await UriUtils.tryLaunch(
-                      Uri.parse(Constants.termsAndConditionsUrl),
-                    );
-                  },
-                ),
-                ListTile(
-                  title: Text(t.about.privacyPolicy),
-                  trailing: const Icon(FluentIcons.open_24_regular),
-                  onTap: () async {
-                    await UriUtils.tryLaunch(
-                      Uri.parse(Constants.privacyPolicyUrl),
                     );
                   },
                 ),

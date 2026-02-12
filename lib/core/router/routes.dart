@@ -12,9 +12,10 @@ import 'package:hiddify/features/per_app_proxy/overview/per_app_proxy_page.dart'
 import 'package:hiddify/features/profile/add/add_profile_modal.dart';
 import 'package:hiddify/features/profile/details/profile_details_page.dart';
 import 'package:hiddify/features/profile/overview/profiles_overview_page.dart';
-import 'package:hiddify/features/proxy/overview/proxies_overview_page.dart';
+import 'package:hiddify/features/settings/account/account_page.dart';
 import 'package:hiddify/features/settings/about/about_page.dart';
 import 'package:hiddify/features/settings/overview/settings_overview_page.dart';
+import 'package:hiddify/features/settings/protocols/protocols_settings_page.dart';
 import 'package:hiddify/utils/utils.dart';
 
 part 'routes.g.dart';
@@ -55,6 +56,26 @@ GlobalKey<NavigatorState>? _dynamicRootKey = useMobileRouter ? rootNavigatorKey 
           path: "settings",
           name: SettingsRoute.name,
           routes: [
+            TypedGoRoute<SettingsProtocolsRoute>(
+              path: "protocols",
+              name: SettingsProtocolsRoute.name,
+            ),
+            TypedGoRoute<SettingsConfigOptionsRoute>(
+              path: "config-options",
+              name: SettingsConfigOptionsRoute.name,
+            ),
+            TypedGoRoute<SettingsLogsRoute>(
+              path: "logs",
+              name: SettingsLogsRoute.name,
+            ),
+            TypedGoRoute<SettingsAboutRoute>(
+              path: "about",
+              name: SettingsAboutRoute.name,
+            ),
+            TypedGoRoute<SettingsAccountRoute>(
+              path: "account",
+              name: SettingsAccountRoute.name,
+            ),
             TypedGoRoute<PerAppProxyRoute>(
               path: "per-app-proxy",
               name: PerAppProxyRoute.name,
@@ -125,7 +146,32 @@ class MobileWrapperRoute extends ShellRouteData {
     TypedGoRoute<SettingsRoute>(
       path: "/settings",
       name: SettingsRoute.name,
-      routes: [],
+      routes: [
+        TypedGoRoute<SettingsProtocolsRoute>(
+          path: "protocols",
+          name: SettingsProtocolsRoute.name,
+        ),
+        TypedGoRoute<SettingsConfigOptionsRoute>(
+          path: "config-options",
+          name: SettingsConfigOptionsRoute.name,
+        ),
+        TypedGoRoute<SettingsLogsRoute>(
+          path: "logs",
+          name: SettingsLogsRoute.name,
+        ),
+        TypedGoRoute<SettingsAboutRoute>(
+          path: "about",
+          name: SettingsAboutRoute.name,
+        ),
+        TypedGoRoute<SettingsAccountRoute>(
+          path: "account",
+          name: SettingsAccountRoute.name,
+        ),
+        TypedGoRoute<PerAppProxyRoute>(
+          path: "per-app-proxy",
+          name: PerAppProxyRoute.name,
+        ),
+      ],
     ),
     TypedGoRoute<LogsOverviewRoute>(
       path: "/logs",
@@ -179,10 +225,15 @@ class ProxiesRoute extends GoRouteData {
   static const name = "Proxies";
 
   @override
+  String? redirect(BuildContext context, GoRouterState state) {
+    return const SettingsProtocolsRoute().location;
+  }
+
+  @override
   Page<void> buildPage(BuildContext context, GoRouterState state) {
     return const NoTransitionPage(
       name: name,
-      child: ProxiesOverviewPage(),
+      child: SizedBox.shrink(),
     );
   }
 }
@@ -264,14 +315,19 @@ class LogsOverviewRoute extends GoRouteData {
   static final GlobalKey<NavigatorState>? $parentNavigatorKey = _dynamicRootKey;
 
   @override
+  String? redirect(BuildContext context, GoRouterState state) {
+    return const SettingsLogsRoute().location;
+  }
+
+  @override
   Page<void> buildPage(BuildContext context, GoRouterState state) {
     if (useMobileRouter) {
       return const MaterialPage(
         name: name,
-        child: LogsOverviewPage(),
+        child: SizedBox.shrink(),
       );
     }
-    return const NoTransitionPage(name: name, child: LogsOverviewPage());
+    return const NoTransitionPage(name: name, child: SizedBox.shrink());
   }
 }
 
@@ -309,11 +365,32 @@ class SettingsRoute extends GoRouteData {
   }
 }
 
-class ConfigOptionsRoute extends GoRouteData {
-  const ConfigOptionsRoute({this.section});
-  final String? section;
-  static const name = "Config Options";
+class SettingsProtocolsRoute extends GoRouteData {
+  const SettingsProtocolsRoute();
+  static const name = "Protocols";
 
+  static final GlobalKey<NavigatorState>? $parentNavigatorKey = _dynamicRootKey;
+
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) {
+    if (useMobileRouter) {
+      return const MaterialPage(
+        name: name,
+        child: ProtocolsSettingsPage(),
+      );
+    }
+    return const NoTransitionPage(
+      name: name,
+      child: ProtocolsSettingsPage(),
+    );
+  }
+}
+
+class SettingsConfigOptionsRoute extends GoRouteData {
+  const SettingsConfigOptionsRoute({this.section});
+  final String? section;
+
+  static const name = "Settings Config Options";
   static final GlobalKey<NavigatorState>? $parentNavigatorKey = _dynamicRootKey;
 
   @override
@@ -328,6 +405,90 @@ class ConfigOptionsRoute extends GoRouteData {
       name: name,
       child: ConfigOptionsPage(section: section),
     );
+  }
+}
+
+class SettingsLogsRoute extends GoRouteData {
+  const SettingsLogsRoute();
+  static const name = "Settings Logs";
+
+  static final GlobalKey<NavigatorState>? $parentNavigatorKey = _dynamicRootKey;
+
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) {
+    if (useMobileRouter) {
+      return const MaterialPage(
+        name: name,
+        child: LogsOverviewPage(),
+      );
+    }
+    return const NoTransitionPage(
+      name: name,
+      child: LogsOverviewPage(),
+    );
+  }
+}
+
+class SettingsAboutRoute extends GoRouteData {
+  const SettingsAboutRoute();
+  static const name = "Settings About";
+
+  static final GlobalKey<NavigatorState>? $parentNavigatorKey = _dynamicRootKey;
+
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) {
+    if (useMobileRouter) {
+      return const MaterialPage(
+        name: name,
+        child: AboutPage(),
+      );
+    }
+    return const NoTransitionPage(
+      name: name,
+      child: AboutPage(),
+    );
+  }
+}
+
+class SettingsAccountRoute extends GoRouteData {
+  const SettingsAccountRoute();
+  static const name = "Account";
+
+  static final GlobalKey<NavigatorState>? $parentNavigatorKey = _dynamicRootKey;
+
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) {
+    if (useMobileRouter) {
+      return const MaterialPage(
+        name: name,
+        child: SettingsAccountPage(),
+      );
+    }
+    return const NoTransitionPage(
+      name: name,
+      child: SettingsAccountPage(),
+    );
+  }
+}
+
+class ConfigOptionsRoute extends GoRouteData {
+  const ConfigOptionsRoute({this.section});
+  final String? section;
+  static const name = "Config Options";
+
+  static final GlobalKey<NavigatorState>? $parentNavigatorKey = _dynamicRootKey;
+
+  @override
+  String? redirect(BuildContext context, GoRouterState state) {
+    return SettingsConfigOptionsRoute(section: section).location;
+  }
+
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) {
+    if (useMobileRouter) {
+      return const MaterialPage(name: name, child: SizedBox.shrink());
+    }
+    return const NoTransitionPage(name: name, child: SizedBox.shrink());
   }
 }
 
@@ -354,13 +515,15 @@ class AboutRoute extends GoRouteData {
   static final GlobalKey<NavigatorState>? $parentNavigatorKey = _dynamicRootKey;
 
   @override
+  String? redirect(BuildContext context, GoRouterState state) {
+    return const SettingsAboutRoute().location;
+  }
+
+  @override
   Page<void> buildPage(BuildContext context, GoRouterState state) {
     if (useMobileRouter) {
-      return const MaterialPage(
-        name: name,
-        child: AboutPage(),
-      );
+      return const MaterialPage(name: name, child: SizedBox.shrink());
     }
-    return const NoTransitionPage(name: name, child: AboutPage());
+    return const NoTransitionPage(name: name, child: SizedBox.shrink());
   }
 }

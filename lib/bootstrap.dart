@@ -27,6 +27,7 @@ import 'package:hiddify/singbox/service/singbox_service_provider.dart';
 import 'package:hiddify/utils/utils.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> lazyBootstrap(
   WidgetsBinding widgetsBinding,
@@ -59,6 +60,28 @@ Future<void> lazyBootstrap(
   await _init(
     "preferences",
     () => container.read(sharedPreferencesProvider.future),
+  );
+  await _safeInit(
+    "supabase",
+    () async {
+      if (!Environment.hasSupabaseConfig) {
+        Logger.bootstrap.warning(
+          "Supabase configuration is missing (SUPABASE_URL/SUPABASE_ANON_KEY)",
+        );
+        return;
+      }
+      try {
+        Supabase.instance.client;
+        Logger.bootstrap.info("supabase already initialized");
+        return;
+      } catch (_) {
+        await Supabase.initialize(
+          url: Environment.supabaseUrl,
+          anonKey: Environment.supabaseAnonKey,
+        );
+        Logger.bootstrap.info("supabase initialized");
+      }
+    },
   );
 
   final enableAnalytics = await container.read(analyticsControllerProvider.future);

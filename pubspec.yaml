@@ -84,6 +84,7 @@ dependencies:
   dart_mappable: ^4.2.1
   fluentui_system_icons: ^1.1.229
   http: ^1.2.0
+  supabase_flutter: ^2.8.4
   timezone_to_country: ^2.1.0
   json_path: ^0.7.1
   # permission_handler: ^11.3.0 # is not compatible with windows

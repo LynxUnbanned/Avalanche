@@ -52,21 +52,13 @@ GoRouter router(RouterRef ref) {
 
 final tabLocations = [
   const HomeRoute().location,
-  const ProxiesRoute().location,
-  const ConfigOptionsRoute().location,
   const SettingsRoute().location,
-  const LogsOverviewRoute().location,
-  const AboutRoute().location,
 ];
 
 int getCurrentIndex(BuildContext context) {
   final String location = GoRouterState.of(context).uri.path;
   if (location == const HomeRoute().location) return 0;
-  var index = 0;
-  for (final tab in tabLocations.sublist(1)) {
-    index++;
-    if (location.startsWith(tab)) return index;
-  }
+  if (location.startsWith(const SettingsRoute().location)) return 1;
   return 0;
 }
 

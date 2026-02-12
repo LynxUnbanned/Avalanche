@@ -30,24 +30,8 @@ class AdaptiveRootScaffold extends HookConsumerWidget {
         label: t.home.pageTitle,
       ),
       NavigationDestination(
-        icon: const Icon(FluentIcons.filter_20_filled),
-        label: t.proxies.pageTitle,
-      ),
-      NavigationDestination(
-        icon: const Icon(FluentIcons.box_edit_20_filled),
-        label: t.config.pageTitle,
-      ),
-      NavigationDestination(
         icon: const Icon(FluentIcons.settings_20_filled),
         label: t.settings.pageTitle,
-      ),
-      NavigationDestination(
-        icon: const Icon(FluentIcons.document_text_20_filled),
-        label: t.logs.pageTitle,
-      ),
-      NavigationDestination(
-        icon: const Icon(FluentIcons.info_20_filled),
-        label: t.about.pageTitle,
       ),
     ];
 
@@ -58,7 +42,7 @@ class AdaptiveRootScaffold extends HookConsumerWidget {
         switchTab(index, context);
       },
       destinations: destinations,
-      drawerDestinationRange: useMobileRouter ? (2, null) : (0, null),
+      drawerDestinationRange: (0, null),
       bottomDestinationRange: (0, 2),
       useBottomSheet: useMobileRouter,
       sidebarTrailing: const Expanded(

@@ -44,7 +44,7 @@ class QuickSettingsModal extends HookConsumerWidget {
           if (warpPrefaceCompleted)
             GestureDetector(
               onLongPress: () {
-                ConfigOptionsRoute(section: ConfigOptionSection.warp.name).go(context);
+                SettingsConfigOptionsRoute(section: ConfigOptionSection.warp.name).go(context);
               },
               child: SwitchListTile(
                 value: ref.watch(ConfigOptions.enableWarp),
@@ -56,11 +56,11 @@ class QuickSettingsModal extends HookConsumerWidget {
             ListTile(
               title: Text(t.config.setupWarp),
               trailing: const Icon(FluentIcons.chevron_right_24_regular),
-              onTap: () => ConfigOptionsRoute(section: ConfigOptionSection.warp.name).go(context),
+              onTap: () => SettingsConfigOptionsRoute(section: ConfigOptionSection.warp.name).go(context),
             ),
           GestureDetector(
             onLongPress: () {
-              ConfigOptionsRoute(section: ConfigOptionSection.fragment.name).go(context);
+              SettingsConfigOptionsRoute(section: ConfigOptionSection.fragment.name).go(context);
             },
             child: SwitchListTile(
               value: ref.watch(ConfigOptions.enableTlsFragment),
@@ -77,7 +77,7 @@ class QuickSettingsModal extends HookConsumerWidget {
             title: Text(t.config.allOptions),
             trailing: const Icon(FluentIcons.chevron_right_24_regular),
             dense: true,
-            onTap: () => const ConfigOptionsRoute().go(context),
+            onTap: () => const SettingsConfigOptionsRoute().go(context),
           ),
           const Gap(16),
         ],

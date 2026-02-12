@@ -58,7 +58,7 @@ class ExperimentalFeatureNoticeDialog extends HookConsumerWidget {
                 onTap: () async {
                   await Navigator.of(context).maybePop(false);
                   if (context.mounted) {
-                    const ConfigOptionsRoute().push(context);
+                    const SettingsConfigOptionsRoute().push(context);
                   }
                 },
                 dense: true,
